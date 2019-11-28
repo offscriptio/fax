@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EPIC AWESOME | FAX SIGN MAKER 3001</title>
+  </head>
+  <body>
+    <pre style="font-family:monospace">
+        
+      ███████╗██████╗ ██╗ ██████╗     █████╗ ██╗    ██╗███████╗███████╗ ██████╗ ███╗   ███╗███████╗
+      ██╔════╝██╔══██╗██║██╔════╝    ██╔══██╗██║    ██║██╔════╝██╔════╝██╔═══██╗████╗ ████║██╔════╝
+      █████╗  ██████╔╝██║██║         ███████║██║ █╗ ██║█████╗  ███████╗██║   ██║██╔████╔██║█████╗  
+      ██╔══╝  ██╔═══╝ ██║██║         ██╔══██║██║███╗██║██╔══╝  ╚════██║██║   ██║██║╚██╔╝██║██╔══╝  
+      ███████╗██║     ██║╚██████╗    ██║  ██║╚███╔███╔╝███████╗███████║╚██████╔╝██║ ╚═╝ ██║███████╗
+      ╚══════╝╚═╝     ╚═╝ ╚═════╝    ╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+                                                                                                   
+                        FAX SIGN MAKER ! 3001 !
+                                                              
+    </pre>
+    <p style="font-family:monospace">Enter your information for paperwork:</p>
+    <form method="GET" style="font-family:monospace">
+      <p>
+        <label>name:</label>
+        <input type="text" name="name" placeholder="Name McNamey" />
+      </p>
+      <p>
+        <label>e-post: </label>
+        <input type="email" name="email" placeholder="mail@epicawesome.se" />
+      </p>
+      <p>
+        <label>fax nummer:</label>
+        <input type="text" name="phone" placeholder="+46 00 666 55 44" />
+      </p>
+      <p>
+        <button type="submit">PRINT AND MAKE READY TO MAIL!</button>
+      </p>
+    </form>
+    <hr style="border:1px dotted black" />
+    <p style="font-family:monospace">CUT BELOW AND MAIL</p>
+    <hr style="border:1px dotted black" />
+    <div style="margin-top:25px">
+      <img
+        style="max-width: 160px; width: 160px; height: auto;"
+        src="logo.png"
+      />
+      <p
+        style="font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; font-size: 16px; line-height: 20px;"
+      >
+        <strong id="name">Namey McNamey</strong><br />
+        ✉️<a href="mailto:mail@epicawesome.se" style="color: inherit" id="mail"
+          >mail@epicawesome.se</a
+        ><br />
+        📞<span id="phone">+46 00 666 55 44</span>
+      </p>
+    </div>
+    <script>
+      var url_string = window.location.href;
+
+      var capturedName = /name=([^&]+)/.exec(url_string)[1];
+      var capturedEmail = /email=([^&]+)/.exec(url_string)[1];
+      var capturedPhone = /phone=([^&]+)/.exec(url_string)[1];
+
+      var elemName = document.getElementById("name");
+      var elemEmail = document.getElementById("mail");
+      var elemPhone = document.getElementById("phone");
+
+      elemName.innerHTML = capturedName.replace("+", " ");
+      elemEmail.innerHTML = capturedEmail.replace("%40", "@");
+      elemEmail.href = "mailto:" + capturedEmail.replace("%40", "@");
+      elemPhone.innerHTML = capturedPhone
+        .replace("+", " ")
+        .replace("%2B", "+")
+        .replace("%20", " ");
+    </script>
+  </body>
+</html>
